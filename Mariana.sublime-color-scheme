@@ -1,0 +1,17 @@
+// Documentation at https://www.sublimetext.com/docs/color_schemes.html
+{
+	"variables":
+	{
+	},
+	"globals":
+	{
+	},
+	"rules":
+	[
+		{
+            "name": "Python Glow",
+            "scope": "entity.name.class.python, entity.name.function.python, support.function.magic.python",
+            "font_style": "glow"
+        },
+	]
+}

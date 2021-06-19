@@ -1,0 +1,39 @@
+[
+    // Place the bindings in your user Key bindings for whatever platform you're
+    // on (also, change the keys as appropriate for your use).
+
+    // Send a newline to the Terminus Python REPL, if it's open
+    { "keys": ["shift+ctrl+enter"], "command": "terminus_send_string",
+      "args": {"string": "\n", "tag": "python-repl"},
+      "context": [
+          { "key": "terminus_tag.exists", "operand": "python-repl" },
+          { "key": "selector", "operator": "equal", "operand": "source.python" },
+      ],
+    },
+
+    // Open a Python REPL using a Terminus buid if it's not already running.
+    { "keys": ["ctrl+enter"], "command": "build",
+      "args": {
+          "build_system": "Packages/User/PythonREPL.sublime-build",
+          "variant": "",
+      },
+      "context": [
+          { "key": "terminus_tag.notexists", "operand": "python-repl" },
+          { "key": "selector", "operator": "equal", "operand": "source.python" },
+      ],
+    },
+
+    // Send the current selection or file content to the Terminus Python REPL,
+    // if it exists.
+    // 
+    // You could also augment this by having different keys depending on if
+    // there is selected text or not, or constrain the number of selections,
+    // etc.
+    { "keys": ["ctrl+enter"], "command": "send_selection_to_terminus",
+      "args": {"tag": "python-repl"},
+      "context": [
+          { "key": "terminus_tag.exists", "operand": "python-repl" },
+          { "key": "selector", "operator": "equal", "operand": "source.python" },
+      ],
+    },
+]
